@@ -26,8 +26,8 @@
 </header>
 
 <!-- HERO -->
-<section class="hero container hero-layout">
-  <div class="hero-text">
+<section class="hero container hero-layout section-animate">
+  <div class="hero-text animate-child">
     <h1>
       Everyday Clothes<br>
       Kids Love to Wear
@@ -36,7 +36,7 @@
     <a href="#" class="btn-primary">Order on WhatsApp</a>
   </div>
 
-  <div class="hero-visual">
+  <div class="hero-visual image-animate">
     <div class="hero-shape"></div>
     <div class="hero-frame image-frame contain">
       <img src="assets/images/kids.png" alt="Kids wearing premium clothes" loading="lazy">
@@ -45,64 +45,64 @@
 </section>
 
 <!-- COLLECTIONS -->
-  <section id="collections" class="alt">
-  <div class="container">
+<section id="collections" class="alt section-animate">
+  <div class="container animate-child">
 
     <!-- SECTION HEADING -->
-    <div class="section-heading">
+    <div class="section-heading animate-child">
       <h2>Our Kids Collections</h2>
       <p>Stylish, comfortable, and ready for everyday play.</p>
     </div>
 
     <div class="collections collection-grid">
+      <div class="card section-animate">
+        <div class="image-frame contain image-animate" style="max-height:350px;">
+          <img src="assets/images/boys.png" loading="lazy">
+        </div>
+        <div class="card-content animate-child">
+          <span class="label">Best Seller</span>
+          <h3>Boys</h3>
+          <p>Durable styles made to move.</p>
+          <span class="cta-text">Order on WhatsApp →</span>
+        </div>
+      </div>
 
-    <div class="card">
-      <div class="image-frame contain" style="max-height:350px;">
-        <img src="assets/images/boys.png" loading="lazy">
+      <div class="card section-animate">
+        <div class="image-frame contain image-animate" style="max-height:350px;">
+          <img src="assets/images/girls.png" loading="lazy">
+        </div>
+        <div class="card-content animate-child">
+          <span class="label">New</span>
+          <h3>Girls</h3>
+          <p>Soft fabrics with premium comfort.</p>
+          <span class="cta-text">Order on WhatsApp →</span>
+        </div>
       </div>
-      <div class="card-content">
-        <span class="label">Best Seller</span>
-        <h3>Boys</h3>
-        <p>Durable styles made to move.</p>
-        <span class="cta-text">Order on WhatsApp →</span>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="image-frame contain" style="max-height:350px;">
-        <img src="assets/images/girls.png" loading="lazy">
-      </div>
-      <div class="card-content">
-        <span class="label">New</span>
-        <h3>Girls</h3>
-        <p>Soft fabrics with premium comfort.</p>
-        <span class="cta-text">Order on WhatsApp →</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="image-frame contain" style="max-height:350px;">
-        <img src="assets/images/toddlers.png" loading="lazy">
-      </div>
-      <div class="card-content">
-        <span class="label">Popular</span>
-        <h3>Toddlers</h3>
-        <p>Gentle on skin. Built for play.</p>
-        <span class="cta-text">Order on WhatsApp →</span>
+      <div class="card section-animate">
+        <div class="image-frame contain image-animate" style="max-height:350px;">
+          <img src="assets/images/toddlers.png" loading="lazy">
+        </div>
+        <div class="card-content animate-child">
+          <span class="label">Popular</span>
+          <h3>Toddlers</h3>
+          <p>Gentle on skin. Built for play.</p>
+          <span class="cta-text">Order on WhatsApp →</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- BELOW COLLECTIONS : TRUST + CTA -->
-<section id="below-collections" class="below-collections">
-  <div class="below-surface container">
+<section id="below-collections" class="below-collections section-animate">
+  <div class="below-surface container animate-child">
 
     <div class="below-layout">
 
       <!-- LEFT: TRUST (SUPPORTING) -->
-      <div class="trust-zone">
-        <div class="trust-item">
+      <div class="trust-zone animate-child">
+        <div class="trust-item animate-child">
           <span class="trust-icon">🧸</span>
           <div class="trust-text">
             <h4>Soft Fabrics</h4>
@@ -110,7 +110,7 @@
           </div>
         </div>
 
-        <div class="trust-item">
+        <div class="trust-item animate-child">
           <span class="trust-icon">❤️</span>
           <div class="trust-text">
             <h4>Parent Approved</h4>
@@ -118,7 +118,7 @@
           </div>
         </div>
 
-        <div class="trust-item">
+        <div class="trust-item animate-child">
           <span class="trust-icon">🌱</span>
           <div class="trust-text">
             <h4>Kid-Safe Quality</h4>
@@ -128,12 +128,12 @@
       </div>
 
       <!-- RIGHT: CTA (PRIMARY) -->
-      <div class="cta-zone">
-        <h3>Order Your Kids’ Outfit Today</h3>
-        <a href="#" class="cta-primary">
+      <div class="cta-zone animate-child">
+        <h3 class="animate-child">Order Your Kids’ Outfit Today</h3>
+        <a href="#" class="cta-primary animate-child">
           Order on WhatsApp
         </a>
-        <span class="cta-note">
+        <span class="cta-note animate-child">
           Fast delivery • Easy returns
         </span>
       </div>
@@ -146,6 +146,22 @@
 <footer>
   © 2025 KidsWear
 </footer>
+
+<!-- OPTIONAL: Intersection Observer Trigger Script -->
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.section-animate, .animate-child, .image-animate').forEach(el => {
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
